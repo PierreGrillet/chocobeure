@@ -17,8 +17,7 @@ public class VueTour extends VBox implements Observer {
         Plateau game = (Plateau) observable;
         game.addObserver(this);
         this.tour= new Text("C'est au tour de "+game.getTurnPlayer().toString()+" de jouer.");
-        tour.setX(50);
-        tour.setY(50);
+        this.getChildren().add(tour);
     }
 
     @Override

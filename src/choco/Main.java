@@ -25,7 +25,7 @@ public class Main extends Application {
 
         root.setCenter(vueGame);
         root.setTop(vueTour);
-        
+
         primaryStage.setScene(new Scene(root, 675, 590));
         primaryStage.setTitle("Chocobar");
         primaryStage.show();
