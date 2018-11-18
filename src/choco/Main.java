@@ -1,3 +1,4 @@
+package choco;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,8 +16,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Plateau jeu = new Plateau("Lenôtre","Loiseau");
         BorderPane root = new BorderPane();
-        root.setCenter(new VueCase(jeu));
-
+        VueCase vueGame = new VueCase(jeu);
+        jeu.addObserver(vueGame);
+        root.setCenter(vueGame);
         primaryStage.setScene(new Scene(root, 512, 512));
         primaryStage.setTitle("Chocobar");
         primaryStage.show();

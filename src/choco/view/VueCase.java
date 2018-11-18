@@ -49,7 +49,7 @@ public class VueCase extends GridPane implements Observer {
                 this.grille[i][j].setVisible(false);
             }
         }
-        game.delTile(x, y);
+        //game.delTile(x, y);
 
 
     }
