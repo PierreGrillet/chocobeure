@@ -7,7 +7,7 @@ public class Plateau extends Observable{
     private Joueur j2;
     private boolean turn;
     private boolean won;
-    private boolean[][] plate;
+    public  boolean[][] plate;
 
     public Plateau(){
         this.plate = new boolean[10][10];
@@ -37,6 +37,7 @@ public class Plateau extends Observable{
             }
         }
         if (x == 0 && y == 0) setWinner();
+        this.setPlayerTurn();
         this.setChanged();
         this.notifyObservers();
     }
@@ -54,6 +55,11 @@ public class Plateau extends Observable{
     public Joueur getWinner(){
         if(! this.won) return null;
         if(! this.turn) return this.j1;
+        else return this.j2;
+    }
+    public Joueur getTurnPlayer(){
+        if( this.won ) return null;
+        if(!this.turn) return this.j1;
         else return this.j2;
     }
     @Override

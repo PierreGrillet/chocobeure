@@ -8,6 +8,7 @@ import choco.model.EcouteurCase;
 import choco.model.Plateau;
 
 import choco.view.VueCase;
+import choco.view.VueTour;
 
 
 public class Main extends Application {
@@ -16,10 +17,16 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Plateau jeu = new Plateau("Lenôtre","Loiseau");
         BorderPane root = new BorderPane();
+
         VueCase vueGame = new VueCase(jeu);
+        VueTour vueTour = new VueTour(jeu);
         jeu.addObserver(vueGame);
+        jeu.addObserver(vueTour);
+
         root.setCenter(vueGame);
-        primaryStage.setScene(new Scene(root, 512, 512));
+        root.setTop(vueTour);
+        
+        primaryStage.setScene(new Scene(root, 675, 590));
         primaryStage.setTitle("Chocobar");
         primaryStage.show();
     }
